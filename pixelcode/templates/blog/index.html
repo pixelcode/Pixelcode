@@ -14,8 +14,8 @@
     .content-div { margin-left: 20px; width: 578px; }
     .content-div h1 { margin: 0 0 10px 0; color: #ff9900; font-size: 20px; font-weight: bold; }
     
-    .social { float: left; width: 100%; background-color: rgba(255, 255, 255, 0.1); margin: 20px 0; }
-    .read_more { display: block; float: left; margin: 5px; background-color: rgba(0, 0, 0, 0.5);}
+    .social { float: left; width: 568px; background-color: rgba(255, 255, 255, 0.2); margin: 20px 0; padding: 5px; }
+    .read_more { display: block; float: left; background-color: rgba(0, 0, 0, 0.5);}
     .read_more h1 { font-family: Helvetica Neue; color: #ff9900; font-size: 13px; font-weight: bold; margin: 0 10px; }
     
     #blog-sidebar { float: left; margin-left: 40px; width: 210px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); }
@@ -25,6 +25,7 @@
     .categories li a:hover, .categories li a.selected { color: #ff9900; }
     
     .fb_iframe_widget { background-color: rgba(255, 255, 255, 1); }
+    .fb_edge_widget_with_comment { background-color: transparent; float: right; color: white;  }
 </style>
 {% endblock %}
 
@@ -46,6 +47,7 @@
                 </div>
                 <div class="social">
                     <span class="read_more"><a href="{% url index %}{{ post.get_absolute_url }}"><h1>Read More &raquo;</h1></a></span>
+                    <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=123147817768516&amp;xfbml=1"></script><fb:like href="{% url index %}{{ post.get_absolute_url }}" send="true" layout="button_count" width="200" show_faces="false" font=""></fb:like>
                 </div>
             </div>
         </div>
