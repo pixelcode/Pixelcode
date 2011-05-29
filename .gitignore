@@ -5,4 +5,5 @@ downloads
 eggs
 parts
 assets
+pixelcode/custom_settings.py
 *.pyc
