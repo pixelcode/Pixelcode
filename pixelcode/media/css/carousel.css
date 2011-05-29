@@ -1,0 +1,74 @@
+label { display: block; } 
+
+.infiniteCarousel {
+  width: 395px;
+  position: relative;
+  height: 100px;
+  margin: 0 auto; 
+}
+
+.infiniteCarousel .wrapper {
+  width: 315px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
+  overflow: auto;
+  min-height: 10em;
+  margin: 0 40px;
+  position: absolute;
+  top: 0;
+}
+
+.infiniteCarousel ul a img {
+  border: 5px solid #000;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.infiniteCarousel .wrapper ul {
+  width: 9999px;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  position: absolute;
+  top: 0;
+}
+
+.infiniteCarousel ul li {
+  display:block;
+  float:left;
+  padding: 10px;
+  height: 85px;
+  width: 85px;
+}
+
+.infiniteCarousel ul li a img {
+  display:block;
+}
+
+.infiniteCarousel .arrow {
+  display: block;
+  height: 36px;
+  width: 37px;  
+  text-indent: -999px;
+  position: absolute;
+  top: 37px;
+  cursor: pointer;
+}
+
+.infiniteCarousel .forward {
+  background: url(/media/images/arrow-right.png) no-repeat 0 0;
+  right: 0;
+}
+
+.infiniteCarousel .back {
+  background: url(/media/images/arrow-left.png) no-repeat 0 0;
+  left: 0;
+}
+
+.infiniteCarousel .forward:hover {
+  background: url(/media/images/arrow-right-hover.png) no-repeat 0 0;
+}
+
+.infiniteCarousel .back:hover {
+  background: url(/media/images/arrow-left-hover.png) no-repeat 0 0;
+}

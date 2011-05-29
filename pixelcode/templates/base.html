@@ -3,8 +3,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>{% block title %}PixelCode.Ca{% endblock %}</title>
-	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+	<script src="{{ MEDIA_URL }}js/carousel.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Metrophobic">
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/carousel.css">
 	{% block extra_head %}{% endblock %}
 	<script type="text/javascript">
 		jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
@@ -17,7 +19,9 @@
 		};
 		
 		$(document).ready(function(){
-		
+			
+			$('.infiniteCarousel').infiniteCarousel();
+
 			function update(){
 				$('.twitter_stat:eq()');
 				var tweet = $('.twitter_stat:eq(0)');
@@ -103,8 +107,24 @@
             </ul>
         </div>
 		<div id="main_content">
+			
+			<div class="infiniteCarousel">
+			  <div class="wrapper">
+				<ul>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047035327/" title="Tall Glow"><img src="http://farm4.static.flickr.com/3011/3047035327_ca12fb2397_s.jpg" height="75" width="75" alt="Tall Glow" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047872076/" title="Wet Cab"><img src="http://farm4.static.flickr.com/3184/3047872076_61a511a04b_s.jpg" height="75" width="75" alt="Wet Cab" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047871878/" title="Rockefella"><img src="http://farm4.static.flickr.com/3048/3047871878_84bfacbd35_s.jpg" height="75" width="75" alt="Rockefella" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047034929/" title="Chrysler Reflect"><img src="http://farm4.static.flickr.com/3220/3047034929_97eaf50ea3_s.jpg" height="75" width="75" alt="Chrysler Reflect" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047871624/" title="Chrysler Up"><img src="http://farm4.static.flickr.com/3164/3047871624_2cacca4684_s.jpg" height="75" width="75" alt="Chrysler Up" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047034661/" title="Time Square Awe"><img src="http://farm4.static.flickr.com/3212/3047034661_f96548965e_s.jpg" height="75" width="75" alt="Time Square Awe" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047034531/" title="Wonky Buildings"><img src="http://farm4.static.flickr.com/3022/3047034531_9c74359401_s.jpg" height="75" width="75" alt="Wonky Buildings" /></a></li>
+				  <li><a href="http://www.flickr.com/photos/remysharp/3047034451/" title="Leaves of Fall"><img src="http://farm4.static.flickr.com/3199/3047034451_121c93386f_s.jpg" height="75" width="75" alt="Leaves of Fall" /></a></li>
+				</ul>        
+			  </div>
+			</div>
+			
 			<p>
-				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of highly skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively. You will probably want to work with us if you are in need of:
+				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively. You will probably want to work with us if you are in need of:
 			</p>
 			<p>
 				<ul>
