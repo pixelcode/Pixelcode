@@ -7,7 +7,25 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Metrophobic">
 	{% block extra_head %}{% endblock %}
 	<script type="text/javascript">
-		$(document).ready(function(){	
+		$(document).ready(function(){
+		
+			function update(){
+				$('.twitter_stat:eq()');
+				var tweet = $('.twitter_stat:eq(0)');
+				var newtweet = tweet.next().next().next();
+				newtweet.nextAll().fadeOut();
+				newtweet.fadeIn(1000);
+				tweet = tweet.fadeThenSlideToggle();
+				tweet.slideUp('slow', function(){
+					tweet.appendTo(tweet.parent());
+					setTimeout(update, 10000);
+				});
+			}
+			var tweet = $('.twitter_stat:eq(0)');
+			var newtweet = tweet.next().next();
+			newtweet.nextAll().fadeOut('fast');
+			setTimeout(update, 10000);
+				
 			{% block doc_ready %}{% endblock %}
 		});
 	</script>
@@ -19,7 +37,7 @@
         #header { padding: 100px 0 0 0; }
         #menu_container { background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
         #menu { margin: 0 auto; width: 400px; height: 54px; }
-        #menu li { margin: 0 auto; list-style: square; color: #ff9900; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
+        #menu li { margin: 0 auto; list-style: square; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
         #menu li:first-child { list-style: none; }
         h1 { margin-bottom: 20px; }
 		h1, #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-size: 17px; font-weight: normal; }
@@ -27,12 +45,13 @@
 		
 		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 350px; text-align: left; }
 		#footer-container { width: 960px; margin: 0 auto; padding-top: 50px; }
+		#footer-container, #footer-container a { color: #999999; }
 		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 250px; padding: 0 3%; }
 		#footer1, #footer2 { border-right: 2px solid #000; }
 		#footer2, #footer3 { border-left: 1px solid #323232; }
 		#footer-menu { list-style: none; }
-		#footer-menu li a { color: #999999; text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
-		#footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
+		#footer-menu li a { text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
+		.tweeted_on, #menu li, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
 		#footer-nav-last { background: none !important; }
 		
 		.icon { float: left; margin: 13px 13px 11px 0; }
@@ -91,6 +110,13 @@
 			</div>
 			<div id="footer3">
 				<img class="icon" src="{{ MEDIA_URL }}images/twitter-icon.png" /><h1>Twitter Feed</h1>
+				{% for t in tweets %}
+					{% if forloop.counter == 1 or forloop.counter == 2 or forloop.counter == 3 %}
+						<div class="twitter_stat"><p>{{ t.text|safe }}<br/><span class="tweeted_on">tweeted on {{ t.date|date:"M jS" }}</span></div>
+					{% else %}
+						<div class="twitter_stat"><p>{{ t.text|safe }}<br/><span class="tweeted_on">tweeted on {{ t.date|date:"M jS" }}</span></div>
+					{% endif %}
+				{% endfor %}				
 			</div>
 		</div>
     </div

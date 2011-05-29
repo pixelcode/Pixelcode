@@ -122,4 +122,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
-    "pixelcode.context_processors.main")
+    "pixelcode.context_processors.main",
+    "pixelcode.context_processors.latest_tweet",
+)
+
+TWITTER_USER = "pixel_code"
+TWITTER_TIMEOUT = 3600
