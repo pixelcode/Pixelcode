@@ -7,6 +7,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+SQLITE_3 = os.path.join(PROJECT_PATH, 'pixelcodedb')
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
