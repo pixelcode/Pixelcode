@@ -1,0 +1,2 @@
+
+from pixelcode.settings import *
