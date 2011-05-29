@@ -13,7 +13,7 @@
 	</script>
 	<style>
 		html { background-image: url('{{ MEDIA_URL }}images/bg.png'); color: white; text-align: center; }
-        body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: Helvetica; font-size: 13px; }
+        body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: Helvetica Neue; font-size: 13px; }
         #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 960px; margin: 0 auto; min-height: 700px; background-repeat: no-repeat; }
         
         #header { padding: 100px 0 0 0; }
@@ -21,16 +21,25 @@
         #menu { margin: 0 auto; width: 400px; height: 54px; }
         #menu li { margin: 0 auto; list-style: square; color: #ff9900; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
         #menu li:first-child { list-style: none; }
-        #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-size: 17px; }
+        h1 { margin-bottom: 20px; }
+		h1, #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-size: 17px; font-weight: normal; }
         #menu li#selected, #menu li:hover { background-image: url({{ MEDIA_URL }}images/menu-selected.png); background-position: bottom center; background-repeat: no-repeat; }
 		
 		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 350px; text-align: left; }
 		#footer-container { width: 960px; margin: 0 auto; padding-top: 50px; }
-		#footer1, #footer2, #footer3 { float: left; width: 33%; min-height: 300px; }
+		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 250px; padding: 0 3%; }
+		#footer1, #footer2 { border-right: 2px solid #000; }
+		#footer2, #footer3 { border-left: 1px solid #323232; }
 		#footer-menu { list-style: none; }
 		#footer-menu li a { color: #999999; text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
 		#footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
 		#footer-nav-last { background: none !important; }
+		
+		.icon { float: left; margin: 13px 13px 11px 0; }
+		
+		#contact-us-form .name, #contact-us-form .email, #contact-us-form textarea { background-color: rgba(255, 255, 255, 0.1); color: white; border: 0; padding: 5px 10px; margin-bottom: 13px; width: 239px; font-weight: bold; }
+		#contact-us-form textarea { padding: 5px 0 0 10px; width: 249px; height: 70px; }
+		#submit-image { float: right; }
 	</style>
 	<script type="text/javascript">
 	
@@ -72,8 +81,16 @@
 				</ul>			
 			</div>
 			<div id="footer2">
+				<img class="icon" src="{{ MEDIA_URL }}images/contact-us-icon.png" /><h1>Contact Us</h1>
+				<form id="contact-us-form" action="." method="post">
+					<input class="name" type="text" name="name" value="Name" />
+					<input class="email" type="text" name="email" value="Email Address" />
+					<textarea>Comments</textarea>
+					<input id="submit-image" type="image" src="{{ MEDIA_URL }}images/submit-button.png" />
+				</form>
 			</div>
 			<div id="footer3">
+				<img class="icon" src="{{ MEDIA_URL }}images/twitter-icon.png" /><h1>Twitter Feed</h1>
 			</div>
 		</div>
     </div
