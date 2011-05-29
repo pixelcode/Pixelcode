@@ -24,6 +24,7 @@ def category_posts(request, category):
 
 def post(request, category, post):
     nav = Navigation.objects.get(slug='blog')
+    category = Category.objects.get(slug=category)
     
     from pixelcode.blog.forms import CommentForm
     posts = Post.objects.filter(slug=post)
@@ -54,10 +55,8 @@ def post(request, category, post):
             form = CommentForm()
     else:
         form = CommentForm()
-        
-    category = Category.objects.get(slug=category)
     
-    context = { 'nav' : nav, 'form' : form, 'posts' : posts, 'categories' : Category.objects.all() }
+    context = { 'nav' : nav, 'form' : form, 'category' : category, 'posts' : posts, 'categories' : Category.objects.all() }
     
     return render_to_response (
         'blog/post.html',

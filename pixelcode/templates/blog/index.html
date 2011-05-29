@@ -43,7 +43,7 @@
             <div class="content-div">
                 <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a>
                 <div class="entry-content">
-                    {{ post.content|safe }}
+                    {{ post.content|safe|truncatewords_html:100 }}
                 </div>
                 <div class="social">
                     <span class="read_more"><a href="{% url index %}{{ post.get_absolute_url }}"><h1>Read More &raquo;</h1></a></span>
