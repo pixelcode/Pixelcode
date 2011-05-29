@@ -7,6 +7,15 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Metrophobic">
 	{% block extra_head %}{% endblock %}
 	<script type="text/javascript">
+		jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
+		  if (this.is(":hidden")) {
+			return this.slideDown(speed, easing).fadeTo(speed, 1, easing, callback);
+		  } else {
+			this.fadeTo(speed, 0, easing).slideUp(speed, easing, callback);
+			return this.fadeTo(speed, 1, easing).slideUp(speed, easing, callback);
+		  }
+		};
+		
 		$(document).ready(function(){
 		
 			function update(){
@@ -43,10 +52,10 @@
 		h1, #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-size: 17px; font-weight: normal; }
         #menu li#selected, #menu li:hover { background-image: url({{ MEDIA_URL }}images/menu-selected.png); background-position: bottom center; background-repeat: no-repeat; }
 		
-		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 350px; text-align: left; }
+		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left; }
 		#footer-container { width: 960px; margin: 0 auto; padding-top: 50px; }
 		#footer-container, #footer-container a { color: #999999; }
-		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 250px; padding: 0 3%; }
+		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 300px; padding: 0 3%; }
 		#footer1, #footer2 { border-right: 2px solid #000; }
 		#footer2, #footer3 { border-left: 1px solid #323232; }
 		#footer-menu { list-style: none; }
