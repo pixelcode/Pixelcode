@@ -87,6 +87,7 @@ INSTALLED_APPS = (
      'django.contrib.admin',
      'south',
      'pixelcode',
+     'pixelcode.blog',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

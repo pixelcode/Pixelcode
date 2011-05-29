@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}{% if category %}Archives for {{ category.title }}{% else %}Blog{% endif %} &raquo;&nbsp; PixelCode{% endblock %}
+
+{% block extra_style %}
+{{ block.super }}
+<style>
+    #blog_container { width: 650px; float: left;}
+    .post-entry { margin-bottom: 40px; float: left; }
+    .calendar-div, .content-div { display: block; float: left; }
+    .calendar-div { width: 40px; padding: 2px 5px 0; border: 1px solid #555555;}
+    .entry-month { font-size: 18px; text-transform: uppercase; font-weight: bold; }
+    .entry-date { font-size: 35px; text-transform: uppercase; font-weight: bold; }
+    .content-div { margin-left: 20px; width: 578px; }
+    .content-div h1 { margin: 0 0 10px 0; color: #ff9900; font-size: 20px; font-weight: bold; }
+    
+    .social { float: left; width: 100%; background-color: rgba(255, 255, 255, 0.1); margin: 20px 0; }
+    .read_more { display: block; float: left; margin: 5px; background-color: rgba(0, 0, 0, 0.5);}
+    .read_more h1 { font-family: Helvetica Neue; color: #ff9900; font-size: 13px; font-weight: bold; margin: 0 10px; }
+    
+    #blog-sidebar { float: left; margin-left: 40px; width: 210px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); }
+    #blog-sidebar h1 { text-shadow: black 5px 4px 2px; margin-bottom: 0; padding-bottom: 10px; border-bottom: 1px solid black; }
+    .categories { padding-left: 15px; margin-top: 0; padding-top: 15px; border-top: 1px solid #555555; }
+    .categories li a { color: #ffffff; text-transform: uppercase; text-decoration: none; }
+    .categories li a:hover, .categories li a.selected { color: #ff9900; }
+    
+    .fb_iframe_widget { background-color: rgba(255, 255, 255, 1); }
+</style>
+{% endblock %}
+
+
+{% block main_content %}
+<div id="main_content">
+    {% block posts %}
+    <div id="blog_container">
+    {% for post in posts %}
+        <div class="post-entry">
+            <div class="calendar-div">
+                <span class="entry-month">{{ post.publish_date|date:"M"}}</span><br/>
+                <span class="entry-date">{{ post.publish_date|date:"d"}}</span>
+            </div>
+            <div class="content-div">
+                <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a>
+                <div class="entry-content">
+                    {{ post.content|safe }}
+                </div>
+                <div class="social">
+                    <span class="read_more"><a href="{% url index %}{{ post.get_absolute_url }}"><h1>Read More &raquo;</h1></a></span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    {% endblock %}
+    <div id="blog-sidebar">
+        <h1>Categories</h1>
+        <ul class="categories">
+        {% for c in categories %}
+            <li><a {% if c == category %}class="selected"{% endif %} href="{% url category_posts c.slug %}">{{ c }}</a></li>
+        {% endfor %}
+        </ul>
+        <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/pages/PixelCode/173039296086200" width="210" show_faces="true" stream="false" header="true"></fb:like-box>
+    </div>
+</div>
+{% endblock %}

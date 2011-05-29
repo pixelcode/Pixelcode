@@ -14,5 +14,6 @@ urlpatterns = patterns(
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^$', 'pixelcode.views.index', name="index"),
+    (r'^blog/', include('pixelcode.blog.urls')),
     url(r'^(?P<nav>.*)/$', 'pixelcode.views.nav', name='nav'),
 )

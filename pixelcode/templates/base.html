@@ -46,7 +46,7 @@
 		html { background-image: url('{{ MEDIA_URL }}images/bg.png'); color: white; text-align: center; }
         body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: Helvetica Neue; font-size: 13px; }
         #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 960px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
-		li { list-style: square; }
+		li { list-style-image: url({{ MEDIA_URL }}images/list.png); }
 		li span { color: white; }
         .tweeted_on, li, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
 		
@@ -62,7 +62,7 @@
 		
 		#main_content { text-align: left; padding-top: 30px; float: left; line-height: 21px;  }
 		
-		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left; }
+		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left; width: 100%; margin: 0 auto; float: left; }
 		#footer-container { width: 960px; margin: 0 auto; padding-top: 50px; }
 		#footer-container, #footer-container a { color: #999999; }
 		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 300px; padding: 0 3%; }
@@ -70,7 +70,8 @@
 		#footer2, #footer3 { border-left: 1px solid #323232; }
 		#footer-menu { list-style: none; }
 		#footer-menu li a { text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
-		
+		.twitter_stat a { text-decoration: none; color: white !important;}
+		.twitter_stat a:hover { text-decoration: underline; }
 		#footer-nav-last { background: none !important; }
 		
 		.icon { float: left; margin: 13px 13px 11px 0; }
@@ -79,6 +80,7 @@
 		#contact-us-form textarea { padding: 5px 0 0 10px; width: 249px; height: 70px; }
 		#submit-image { float: right; }
 	</style>
+	{% block extra_style %}{% endblock %}
 	<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];
@@ -106,8 +108,8 @@
 				{% endfor %}
             </ul>
         </div>
-		<div id="main_content">
-			
+		{% block main_content %}
+		<div id="main_content">			
 			<div class="infiniteCarousel">
 			  <div class="wrapper">
 				<ul>
@@ -139,6 +141,7 @@
 				Our Expertise: PHP, Python, Javascript, Html, Html5, css, css3, action script 3, Drupal, Joomla, Django, Pylons, Tornado, Comet Servers, NodeJS, Mysql, Postgresql, sqllite, Couch/MongoDB, Apache, Nginx, Cherokee web servers, System/Network Administration etc.
 			</p>
 		</div>
+		{% endblock %}
     </div>
     <div id="footer">
 		<div id="footer-container">
