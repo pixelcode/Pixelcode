@@ -53,7 +53,7 @@
 		
         #header { padding: 100px 0 0 0; }
         #menu_container { margin-top: 50px; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
-        #menu { margin: 0 auto; width: 400px; height: 54px; }
+        #menu { margin: 0 auto; width: -moz-fit-content; height: 54px; }
 		
 		#menu li { margin: 0 auto; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
         #menu li:first-child { list-style: none; }
@@ -69,7 +69,7 @@
 		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 300px; padding: 0 3%; }
 		#footer1, #footer2 { border-right: 2px solid #000; }
 		#footer2, #footer3 { border-left: 1px solid #323232; }
-		#footer-menu { list-style: none; }
+		#footer-menu, #footer-menu li { list-style-image: none !important; list-style: none !important; padding-left: 0 !important; }
 		#footer-menu li a { text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
 		.twitter_stat a { text-decoration: none; color: white !important;}
 		.twitter_stat a:hover { text-decoration: underline; }
