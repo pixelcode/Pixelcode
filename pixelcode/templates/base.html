@@ -42,15 +42,21 @@
 		html { background-image: url('{{ MEDIA_URL }}images/bg.png'); color: white; text-align: center; }
         body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: Helvetica Neue; font-size: 13px; }
         #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 960px; margin: 0 auto; min-height: 700px; background-repeat: no-repeat; }
-        
+		li { list-style: square; }
+		li span { color: white; }
+        .tweeted_on, li, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
+		
         #header { padding: 100px 0 0 0; }
         #menu_container { background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
         #menu { margin: 0 auto; width: 400px; height: 54px; }
-        #menu li { margin: 0 auto; list-style: square; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
+		
+		#menu li { margin: 0 auto; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
         #menu li:first-child { list-style: none; }
         h1 { margin-bottom: 20px; }
 		h1, #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-size: 17px; font-weight: normal; }
         #menu li#selected, #menu li:hover { background-image: url({{ MEDIA_URL }}images/menu-selected.png); background-position: bottom center; background-repeat: no-repeat; }
+		
+		#main_content { text-align: left; padding-top: 30px; float: left; line-height: 21px;  }
 		
 		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left; }
 		#footer-container { width: 960px; margin: 0 auto; padding-top: 50px; }
@@ -60,7 +66,7 @@
 		#footer2, #footer3 { border-left: 1px solid #323232; }
 		#footer-menu { list-style: none; }
 		#footer-menu li a { text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
-		.tweeted_on, #menu li, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
+		
 		#footer-nav-last { background: none !important; }
 		
 		.icon { float: left; margin: 13px 13px 11px 0; }
@@ -96,6 +102,23 @@
 				{% endfor %}
             </ul>
         </div>
+		<div id="main_content">
+			<p>
+				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of highly skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively. You will probably want to work with us if you are in need of:
+			</p>
+			<p>
+				<ul>
+					<li><span>A content management system that is entirely customized to your needs minus the fluff.</span></li>
+					<li><span>Consultation for your web project.</span></li>
+					<li><span>Social Media Integration with your existing site.</span></li>
+					<li><span>Cutting edge web implementation with HTML5/JS/Python/PHP.</span></li>
+					<li><span>Collaborate on untested waters in the world of web.</span></li>
+				</ul>
+			</p>
+			<p>
+				Our Expertise: PHP, Python, Javascript, Html, Html5, css, css3, action script 3, Drupal, Joomla, Django, Pylons, Tornado, Comet Servers, NodeJS, Mysql, Postgresql, sqllite, Couch/MongoDB, Apache, Nginx, Cherokee web servers, System/Network Administration etc.
+			</p>
+		</div>
     </div>
     <div id="footer">
 		<div id="footer-container">
