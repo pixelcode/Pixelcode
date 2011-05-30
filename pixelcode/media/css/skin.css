@@ -43,6 +43,10 @@
 	padding: 5px; 
 }
 
+.jcarousel-skin-tango .jcarousel-item:hover {
+	border: 1px solid #ff9900;
+}
+
 .jcarousel-skin-tango .jcarousel-item-horizontal {
 	margin-left: 0;
     margin-right: 10px;
