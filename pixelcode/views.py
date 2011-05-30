@@ -20,6 +20,27 @@ def nav(request, nav):
     context ={ 'nav': Navigation.objects.get(slug=nav) }
     return render_to_response (template, context, context_instance = RequestContext(request))
 
+def subnav(request, nav, subnav):
+    template = nav+'.html'    
+    try:
+        get_template(template)
+    except:
+        template = 'index.html'
+    print template
+    context ={ 'nav': Navigation.objects.get(slug=nav), 'subnav' : SubNavigation.objects.get(slug=subnav) }
+    return render_to_response (template, context, context_instance = RequestContext(request))
+
+def subsubnav(request, nav, subnav, subsubnav):
+    template = nav+'.html'    
+    try:
+        get_template(template)
+    except:
+        template = 'index.html'
+    print template
+    context ={ 'nav': Navigation.objects.get(slug=nav), 'subnav' : SubNavigation.objects.get(slug=subnav), 'subsubnav' : SubSubNavigation.objects.get(slug=subsubnav) }
+    return render_to_response (template, context, context_instance = RequestContext(request))
+
+
 def contact_form(request):
     comment = request.POST.get('comment', '')
     email = request.POST.get('email', '')

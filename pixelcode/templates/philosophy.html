@@ -1,13 +1,73 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
+
+{% block title %}
+    {% if nav and not subnav %}{{ nav.title }}
+    {% else %}
+        {% if subnav and not subsubnav %}{{ nav.title }} &raquo; {{ subnav.title }}
+        {% else %}{{ nav.title }} &raquo; {{ subnav.title }} &raquo; {{ subsubnav.title }}{% endif %}
+    {% endif %}
+{% endblock %}
 
 {% block extra_style %}
-<style>
 
+{{ block.super }}
+<style>
+    #container { width: 670px; float: left; margin: -10px 0 40px 0; }
+    .container h1 { margin: 0 0 10px 0; color: #ff9900; font-size: 20px; font-weight: bold; }
+    
+    .social { float: left; width: 588px; background-color: rgba(255, 255, 255, 0.2); margin: 20px 0; padding: 5px; }
+    .read_more { display: block; float: left; background-color: rgba(0, 0, 0, 0.5);}
+    .read_more h1 { font-family: Helvetica Neue; color: #ff9900; font-size: 13px; font-weight: bold; margin: 0 10px; }
+    
+    #sidebar { float: left; margin-right: 40px; width: 210px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); }
+    #sidebar h1 { text-shadow: black 5px 4px 2px; margin-top: 0; padding-top: 10px; border-top: 1px solid black; }
+
+    .categories { padding-left: 15px; margin-bottom: 0; padding-bottom: 15px; border-bottom: 1px solid #555555; }
+    .categories li a { color: #ffffff; text-transform: uppercase; text-decoration: none; }
+    .categories li a:hover, .categories li a.selected { color: #ff9900; }
+    
+    .fb_iframe_widget { background-color: rgba(255, 255, 255, 1); }
+    .fb_edge_widget_with_comment { background-color: transparent; float: right; color: white;  }
+    
+    .no_style { border: 0 !important; }
+    
+    .items { width: 100%: float: left; }
+    
 </style>
+{% endblock %}
+
+{% block doc_ready %}
+
 {% endblock %}
 
 {% block main_content %}
 <div id="main_content">
-    <h1>Coming Soon...</h1>
+    <ul id="mycarousel" class="jcarousel-skin-tango">
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+    </ul>        
+
+    <div id="sidebar">
+        {% for sn in nav.subnavigation_set.all %}
+            <a href="{% url index %}{{ sn.get_absolute_url }}"><h1 class="{% if sn = subnav %}selected {% endif %}{% if forloop.first %}no_style{% endif %}">{{ sn }}</h1></a>
+            <ul class="categories {% if forloop.last %}no_style{% endif %}">
+            {% for ssn in sn.subsubnavigation_set.all %}
+                <li><a {% if ssn = subsubnav %}class="selected"{% endif %} href="{% url subsubnav nav.slug sn.slug ssn.slug %}">{{ ssn }}</a></li>
+            {% endfor %}
+            </ul>            
+        {% endfor %}
+    </div>
+    <div id="container">
+        {% if nav and not subnav %}{{ nav.content|safe }}{% endif %}
+        {% if subnav and not subsubnav %}{{ subnav.content|safe }}        
+        {% else %}{{ subsubnav.content|safe }}{% endif %}  
+    </div>
+    
 </div>
 {% endblock %}

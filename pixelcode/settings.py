@@ -33,6 +33,7 @@ STATIC_URL = '/static/'
 
 
 ADMIN_MEDIA_PREFIX = '/admin_media/'
+ADMIN_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '..' , 'parts', 'django', 'django', 'contrib', 'admin', 'media')
 
 # Additional locations of static files
 STATICFILES_DIRS = (

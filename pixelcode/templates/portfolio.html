@@ -7,6 +7,7 @@
     #clients { vertical-align: middle; }
     #clients img { padding: 5px; border: 1px solid #434343; margin-right: 15px; }
     #clients img:hover { border: 1px solid #ff9902; }
+	.jcarousel-skin-tango { margin: 30px 0 20px 35px; }
 </style>
 {% endblock %}
 
@@ -14,20 +15,16 @@
 <div id="main_content">
     <h1>Our Work</h1>
 
-			<div class="infiniteCarousel">
-			  <div class="wrapper">
-				<ul>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047035327/" title="Tall Glow"><img src="http://farm4.static.flickr.com/3011/3047035327_ca12fb2397_s.jpg" height="75" width="75" alt="Tall Glow" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047872076/" title="Wet Cab"><img src="http://farm4.static.flickr.com/3184/3047872076_61a511a04b_s.jpg" height="75" width="75" alt="Wet Cab" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047871878/" title="Rockefella"><img src="http://farm4.static.flickr.com/3048/3047871878_84bfacbd35_s.jpg" height="75" width="75" alt="Rockefella" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047034929/" title="Chrysler Reflect"><img src="http://farm4.static.flickr.com/3220/3047034929_97eaf50ea3_s.jpg" height="75" width="75" alt="Chrysler Reflect" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047871624/" title="Chrysler Up"><img src="http://farm4.static.flickr.com/3164/3047871624_2cacca4684_s.jpg" height="75" width="75" alt="Chrysler Up" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047034661/" title="Time Square Awe"><img src="http://farm4.static.flickr.com/3212/3047034661_f96548965e_s.jpg" height="75" width="75" alt="Time Square Awe" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047034531/" title="Wonky Buildings"><img src="http://farm4.static.flickr.com/3022/3047034531_9c74359401_s.jpg" height="75" width="75" alt="Wonky Buildings" /></a></li>
-				  <li><a href="http://www.flickr.com/photos/remysharp/3047034451/" title="Leaves of Fall"><img src="http://farm4.static.flickr.com/3199/3047034451_121c93386f_s.jpg" height="75" width="75" alt="Leaves of Fall" /></a></li>
-				</ul>        
-			  </div>
-			</div>
+			<ul id="mycarousel" class="jcarousel-skin-tango">
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+			</ul>    
     
     <hr />
     <h1>Our Clients</h1>

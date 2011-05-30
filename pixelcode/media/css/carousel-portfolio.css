@@ -1,0 +1,72 @@
+label { display: block; } 
+
+.infiniteportfolioCarousel {
+  width: 670px;
+  position: relative;
+  height: 100px;
+  margin: 0 auto; 
+}
+
+.infiniteportfolioCarousel .wrapper {
+  width: 610px; /* .infiniteportfolioCarousel width - (.wrapper margin-left + .wrapper margin-right) */
+  overflow: auto;
+  min-height: 10em;
+  margin: 0 30px 0 30px;
+  position: absolute;
+  top: 0;
+}
+
+.infiniteportfolioCarousel .wrapper ul {
+  width: 9999px;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0 0 0 -80px;
+  padding:0;
+  position: absolute;
+  top: 0;
+}
+
+.infiniteportfolioCarousel ul li { display:block; float:left; padding: 5px; margin: 0 10px; width: 170px; border: 1px solid white; }
+
+.infiniteportfolioCarousel ul li a {
+  display:block;
+  float:left;
+  height: 95px;
+  width: 170px;
+  overflow: hidden;
+}
+
+.infiniteportfolioCarousel ul li a img { display:block;  }
+
+.infiniteportfolioCarousel ul li a img:hover {
+   margin-top: -95px;
+}
+
+.infiniteportfolioCarousel .arrow {
+  display: block;
+  height: 36px;
+  width: 37px;  
+  text-indent: -999px;
+  position: absolute;
+  top: 37px;
+  cursor: pointer;
+}
+
+.infiniteportfolioCarousel .forward {
+  background: url(/media/images/arrow-right.png) no-repeat 0 0;
+  right: 0;
+}
+
+.infiniteportfolioCarousel .back {
+  background: url(/media/images/arrow-left.png) no-repeat 0 0;
+  left: 0;
+}
+
+.infiniteportfolioCarousel .forward:hover {
+  background: url(/media/images/arrow-right-hover.png) no-repeat 0 0;
+}
+
+.infiniteportfolioCarousel .back:hover {
+  background: url(/media/images/arrow-left-hover.png) no-repeat 0 0;
+}
