@@ -33,6 +33,8 @@
     
     .items { width: 100%: float: left; }
     
+    .jcarousel-skin-tango { margin: 50px 0 50px 35px; }
+
 </style>
 {% endblock %}
 
@@ -42,16 +44,6 @@
 
 {% block main_content %}
 <div id="main_content">
-    <ul id="mycarousel" class="jcarousel-skin-tango">
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
-    </ul>        
 
     <div id="sidebar">
         {% for sn in nav.subnavigation_set.all %}
@@ -68,6 +60,16 @@
         {% if subnav and not subsubnav %}{{ subnav.content|safe }}        
         {% else %}{{ subsubnav.content|safe }}{% endif %}  
     </div>
-    
+    <div class="clear"></div>
+    <ul id="mycarousel" class="jcarousel-skin-tango">
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+    </ul>        
 </div>
 {% endblock %}
