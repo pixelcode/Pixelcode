@@ -86,6 +86,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
      'pixelcode',
+     'filebrowser',
      'pixelcode.blog',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -128,3 +129,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 TWITTER_USER = "pixel_code"
 TWITTER_TIMEOUT = 3600
+
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+TINYMCE_FILEBROWSER = False
+
+FILEBROWSER_URL_FILEBROWSER_MEDIA = '/media/filebrowser/'

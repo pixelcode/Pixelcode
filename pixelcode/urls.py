@@ -11,6 +11,7 @@ handler500 # Pyflakes
 urlpatterns = patterns(
     '',
     (r'^admin/', include(admin.site.urls)),
+    (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^$', 'pixelcode.views.index', name="index"),
