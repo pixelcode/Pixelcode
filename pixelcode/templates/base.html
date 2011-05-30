@@ -39,7 +39,43 @@
 			var newtweet = tweet.next().next();
 			newtweet.nextAll().fadeOut('fast');
 			setTimeout(update, 10000);
-				
+
+			//Code to blur search box
+			$('#contact-us-form textarea, #contact-us-form input').each(function() {
+				var default_value = this.value;
+				$(this).focus(function() {
+						if(this.value == default_value) {
+							this.value = '';
+						}
+				});
+				$(this).blur(function() {
+						if(this.value == '') {
+							this.value = default_value;
+						}
+				});
+			});
+			
+			$('#contact-us-form').submit(function(event){
+				event.preventDefault();
+				$.ajax({
+					url: '{% url contact_form %}',
+					type: 'POST',
+					data: $(this).serialize(),
+					dataType: 'json',
+					success: function(data) {
+						if (data.success ) {
+							$('#contact-us-form-error').html('');
+							$('#contact-us-form').fadeOut('slow', function(){
+								$(this).html(data.message).fadeIn('slow');
+							});
+						} else {
+							$('#contact-us-form-error').html(data.message);
+						}
+					}
+				});
+				return false;
+			});
+			
 			{% block doc_ready %}{% endblock %}
 		});
 	</script>
@@ -158,13 +194,15 @@
 				</ul>			
 			</div>
 			<div id="footer2">
-				<img class="icon" src="{{ MEDIA_URL }}images/contact-us-icon.png" /><h1>Contact Us</h1>
+				<img class="icon" src="{{ MEDIA_URL }}images/contact-us-icon.png" /><h1>Contact Us</h1>				
 				<form id="contact-us-form" action="." method="post">
+					{% csrf_token %}
 					<input class="name" type="text" name="name" value="Name" />
 					<input class="email" type="text" name="email" value="Email Address" />
-					<textarea>Comments</textarea>
+					<textarea name="comment">Comments</textarea>
 					<input id="submit-image" type="image" src="{{ MEDIA_URL }}images/submit-button.png" />
 				</form>
+				<div id="contact-us-form-error"></div>
 			</div>
 			<div id="footer3">
 				<img class="icon" src="{{ MEDIA_URL }}images/twitter-icon.png" /><h1>Twitter Feed</h1>

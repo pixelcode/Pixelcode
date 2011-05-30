@@ -15,5 +15,6 @@ urlpatterns = patterns(
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^$', 'pixelcode.views.index', name="index"),
     (r'^blog/', include('pixelcode.blog.urls')),
+    url(r'^contact-form/$', 'pixelcode.views.contact_form', name='contact_form'),
     url(r'^(?P<nav>.*)/$', 'pixelcode.views.nav', name='nav'),
 )
