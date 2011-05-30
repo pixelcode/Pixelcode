@@ -32,7 +32,7 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
