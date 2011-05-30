@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}
 {% load i18n %}
 
-{% block title %}{{ title }} | {% trans "PrintPartner Admin" %}{% endblock %}
+{% block title %}{{ title }} | {% trans "PixelCode Admin" %}{% endblock %}
 
 {% block extrahead %}
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.min.js"></script>
@@ -102,8 +102,6 @@ function CustomFileBrowser(field_name, url, type, win) {
 </script>
 
 <style>
-	#header { background: url({{ MEDIA_URL }}images/site/head.png); height: 40px; background-color: #646464; }
-	#branding h1 { color: white; }
 	/*#branding h1 { font-size: 21px; font-weight: bold; color: black; }*/
 	/*#user-tools { margin: 30px 40px 0 0; color: black; }*/
 	/*#user-tools a { color: black !important; }*/
@@ -112,7 +110,7 @@ function CustomFileBrowser(field_name, url, type, win) {
 {% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{% trans "PrintPartner Admin" %}</h1>
+<h1 id="site-name">{% trans "PixelCode Admin" %}</h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
