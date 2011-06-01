@@ -86,14 +86,16 @@
 			});
 
 
-    $('#mycarousel').jcarousel({
-    	wrap: 'circular'
-    });
+			$('#mycarousel').jcarousel({
+				wrap: 'circular'
+			});
 	
 			{% block doc_ready %}
 
 			{% endblock %}
 		});
+		
+		
 	</script>
 	<style>
 		html { background-image: url('{{ MEDIA_URL }}images/bg.png'); color: white; text-align: center; }
@@ -101,13 +103,13 @@
 		a, img { border: 0; outline: none; }
 		a:hover { text-decoration: underline; }
         body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: Helvetica Neue; font-size: 14px; }
-        #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 960px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
+        #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 1060px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
 		li { list-style-image: url({{ MEDIA_URL }}images/list.png); }
 		li span { color: white; }
         .selected, .tweeted_on, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
 		
         #header { padding: 100px 0 0 0; }
-        #menu_container { margin: 50px; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
+        #menu_container { margin: 50px 0; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
         #menu { margin: 0 auto; width: -moz-fit-content; height: 54px; }
 		
 		#menu li { margin: 0 auto; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
@@ -118,10 +120,10 @@
 		#menu li a { font-size: 14px; }
         #menu li#selected, #menu li:hover { background-image: url({{ MEDIA_URL }}images/menu-selected.png); background-position: bottom center; background-repeat: no-repeat; }
 		
-		#main_content { text-align: left; padding-top: 30px; float: left; line-height: 21px; margin: 0 0 50px 50px; width: 960px;}
+		#main_content { text-align: left; padding-top: 30px; float: left; line-height: 21px; margin: 0 0 50px 50px; width: 1060px;}
 		
 		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left; width: 100%; margin: 0 auto; float: left; }
-		#footer-container { width: 960px; margin: 0 auto; padding-top: 50px; }
+		#footer-container { width: 1060px; margin: 0 auto; padding-top: 50px; }
 		#footer-container, #footer-container a { color: #999999; }
 		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 300px; padding: 0 3%; }
 		#footer1, #footer2 { border-right: 2px solid #000; }
@@ -138,8 +140,9 @@
 		#contact-us-form textarea { padding: 5px 0 0 10px; width: 249px; height: 70px; }
 		#submit-image { float: right; }
 		
-		.jcarousel-skin-tango { margin: -20px 0 50px 35px; }
+		.jcarousel-skin-tango { margin: -20px 0 0 35px; height: 138px !important; }
 		.clear { clear: both; }
+		
 	</style>
 	{% block extra_style %}{% endblock %}
 	<script type="text/javascript">
@@ -172,16 +175,15 @@
 		{% block main_content %}
 		<div id="main_content">			
 			<ul id="mycarousel" class="jcarousel-skin-tango">
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+				<li><a href="{% url index %}portfolio/#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+				<li><a href="{% url index %}portfolio/#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+				<li><a href="{% url index %}portfolio/#Java"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+				<li><a href="{% url index %}portfolio/#MySQL"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+				<li><a href="{% url index %}portfolio/#CouchDB"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+				<li><a href="{% url index %}portfolio/#CodeIgniter"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="CodeIgniter" /></a></li>
+				<li><a href="{% url index %}portfolio/#PostgreSQL"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+				<li><a href="{% url index %}portfolio/#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
 			</ul>        
-			
 			<p>
 				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively. You will probably want to work with us if you are in need of:
 			</p>

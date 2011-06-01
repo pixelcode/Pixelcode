@@ -8,7 +8,44 @@
     #clients img { padding: 5px; border: 1px solid #434343; margin-right: 15px; }
     #clients img:hover { border: 1px solid #ff9902; }
 	.jcarousel-skin-tango { margin: 30px 0 20px 35px; }
+		#description { margin: 0 0 30px 96px; width: 757px; height: 200px;  }
+		#description div { display: none; }
+		.isNowHighlighted { display: block !important; }
+		.yellowBorder { border-color: #ff9900 !important; }
+		.yellowBorder a img { margin-top: -95px; }
 </style>
+{% endblock %}
+
+{% block doc_ready %}
+			function highlight(item, pageload){
+				$('.isNowHighlighted').removeClass('isNowHighlighted');
+				$('.yellowBorder').removeClass('yellowBorder');
+				var id = item[0].hash.replace('#','');
+				$('#' + id +'d').addClass('isNowHighlighted');
+				item.parent().addClass('yellowBorder');
+				var children = item.parent().parent().children();
+				if(pageload){
+					for (i=0; i < children.length; i++) {
+						if (item[0].hash == children[i].childNodes[0].hash) {
+							if (i> 4 && i< 7){
+								$('.jcarousel-next, .jcarousel-next-horizontal').trigger('click');
+							}
+							if (i> 6) {
+								$('.jcarousel-prev, .jcarousel-prev-horizontal').trigger('click').trigger('click');
+							}							
+						}
+	
+					}
+				}
+			}
+	
+			$('a[href^=#]').click(function(){
+				highlight($(this), false);
+			});
+
+			if (window.location.hash) {
+				highlight($('a[href^='+window.location.hash+']'), true);
+			}
 {% endblock %}
 
 {% block main_content %}
@@ -16,16 +53,57 @@
     <h1>Our Work</h1>
 
 			<ul id="mycarousel" class="jcarousel-skin-tango">
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
-				<li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+				<li><a href="#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+				<li><a href="#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+				<li><a href="#Java"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+				<li><a href="#MySQL"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+				<li><a href="#CouchDB"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+				<li><a href="#CodeIgniter"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="CodeIgniter" /></a></li>
+				<li><a href="#PostgreSQL"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+				<li><a href="#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
 			</ul>    
-    
+			<div id="description">
+				<div id="PHPd">
+					<h1>PHP</h1>
+					PHP has a wide variety of applications on the Web, may it be a simple website or a facebook app. It can be a fast and powerful tool
+					to add dynamic content on your site. It can also be used in combination with a database backend such as MySQL, Sqlite etc.
+				</div>
+				<div id="Pythond">
+					<h1>Python</h1>
+					Python is a programming language that focuses on high-level operations. It lets us work more quickly and integrate systems more effectively. It is recommended for websites and applications
+					that require complex application logic and background tasks. We utilize various frameworks built in python that help create faster and more robust sites and applications with dynamic user generated content.
+				</div>
+				<div id="Javad">
+					<h1>Java</h1>
+					Java programs used within a web page can add many new features to a web browser. These are small program used in the programming of instant messaging, chat service, solving some complex calculation and
+					for many other purposes. It is also used to create new and advanced cross platform applications.
+				</div>
+				<div id="MySQLd">
+					<h1>MySQL</h1>
+					MySQL is a popular choice of database for use in web applications and is a common component of our LAMP Stack. We use it conjunction with many of our sites and web apps that require a well tested
+					and proven database backend.
+				</div>
+				<div id="CouchDBd">
+					<h1>CouchDB</h1>
+					A growing number of applications are moving away from the traditional Relational database solutions such as MySQL to highly scalable and fast ones such as CouchDB. If you require a web application that needs to
+					perform hundreds of queries in seconds, CouchDB may be the right choice for you. It can be used in conjunction with PHP/Python/Rails to make your web app complete.
+				</div>
+				<div id="CodeIgniterd">
+					<h1>Code Igniter</h1>
+					This is a small, simple and fast PHP Framework that can be used to build small web applications to larger cross platform web softwares. It's clean code and straight forward design makes it a popular
+					php framwork at PixelCode.
+				</div>
+				<div id="PostgreSQLd">
+					<h1>PostgreSQL</h1>
+					This is a popular alternative to MySQL as a database engine. It boasts of greater security, optimization, error handling and lesser quirks and limitations than its competitor. If MySQL doesn't quite fit
+					the very specific requirements of your project, PostgreSQL might be the right tool for you.					
+				</div>
+				<div id="MongoDBd">
+					<h1>MongoDB</h1>
+						MongoDB is a popular alternative to CouchDB. They are both document stores that allows you to perform lighting fast, deep queries. It is also schema free allowing your
+						database to take whatever shape it needs to depending on your code. This provides your web application a clear path to horizontal scalability.
+				</div>				
+			</div>    
     <hr />
     <h1>Our Clients</h1>
     <table id="clients">

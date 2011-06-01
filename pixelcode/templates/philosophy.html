@@ -62,14 +62,14 @@
     </div>
     <div class="clear"></div>
     <ul id="mycarousel" class="jcarousel-skin-tango">
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="Code Igniter" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
-        <li><a href="#"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+        <li><a href="{% url index %}portfolio/#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+        <li><a href="{% url index %}portfolio/#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+        <li><a href="{% url index %}portfolio/#Java"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+        <li><a href="{% url index %}portfolio/#MySQL"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+        <li><a href="{% url index %}portfolio/#CouchDB"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+        <li><a href="{% url index %}portfolio/#CodeIgniter"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="CodeIgniter" /></a></li>
+        <li><a href="{% url index %}portfolio/#PostgreSQL"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+        <li><a href="{% url index %}portfolio/#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
     </ul>        
 </div>
 {% endblock %}
