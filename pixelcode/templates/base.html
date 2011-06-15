@@ -18,7 +18,9 @@
 		Cufon.replace('h1'); // Works without a selector engine
 		Cufon.replace('#menu li a'); // Requires a selector engine for IE 6-7, see above
 	</script>
-		
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>		
 	{% block extra_head %}{% endblock %}
 	<script type="text/javascript">
 		jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
@@ -98,11 +100,11 @@
 		
 	</script>
 	<style>
-		html { background-image: url('{{ MEDIA_URL }}images/bg.png'); color: white; text-align: center; }
+		html { background-image: url('{{ MEDIA_URL }}images/bg.png'); color: white; text-align: center; background-color: rgba(255, 255, 255, 0.1);}
 		a { text-decoration: none; color: #ff9900; }
 		a, img { border: 0; outline: none; }
 		a:hover { text-decoration: underline; }
-        body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: Helvetica Neue; font-size: 14px; }
+        body { background-image: url({{ MEDIA_URL }}images/web.png); background-position: right top; background-repeat: no-repeat; margin: 0; font-family: 'Metrophobic', Helvetica Neue; font-size: 15px; }
         #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 1060px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
 		li { list-style-image: url({{ MEDIA_URL }}images/list.png); }
 		li span { color: white; }
@@ -110,7 +112,7 @@
 		
         #header { padding: 100px 0 0 0; }
         #menu_container { margin: 50px 0; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
-        #menu { margin: 0 auto; width: -moz-fit-content; height: 54px; }
+        #menu { margin: 0 auto; width: 650px; height: 54px; }
 		
 		#menu li { margin: 0 auto; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
         #menu li:first-child { list-style: none; }
@@ -172,6 +174,7 @@
 				{% endfor %}
             </ul>
         </div>
+	<center style="color: gray;">Please note this web site is still construction, but you can feel free to explore.</center>
 		{% block main_content %}
 		<div id="main_content">			
 			<ul id="mycarousel" class="jcarousel-skin-tango">
@@ -185,19 +188,8 @@
 				<li><a href="{% url index %}portfolio/#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
 			</ul>        
 			<p>
-				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively. You will probably want to work with us if you are in need of:
-			</p>
-			<p>
-				<ul>
-					<li><span>A content management system that is entirely customized to your needs minus the fluff.</span></li>
-					<li><span>Consultation for your web project.</span></li>
-					<li><span>Social Media Integration with your existing site.</span></li>
-					<li><span>Cutting edge web implementation with HTML5/JS/Python/PHP.</span></li>
-					<li><span>Collaborate on untested waters in the world of web.</span></li>
-				</ul>
-			</p>
-			<p>
-				Our Expertise: PHP, Python, Javascript, Html, Html5, css, css3, action script 3, Drupal, Joomla, Django, Pylons, Tornado, Comet Servers, NodeJS, Mysql, Postgresql, sqllite, Couch/MongoDB, Apache, Nginx, Cherokee web servers, System/Network Administration etc.
+				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively.
+				This site is still under construction. But you can feel free to browse.
 			</p>
 		</div>
 		{% endblock %}
