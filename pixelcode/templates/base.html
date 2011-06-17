@@ -20,7 +20,11 @@
 	</script>
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>		
+	<link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>
+		
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.nivo.slider.pack.js"></script>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/nivo-slider.css" type="text/css" media="screen" />
+	
 	{% block extra_head %}{% endblock %}
 	<script type="text/javascript">
 		jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
@@ -91,7 +95,9 @@
 			$('#mycarousel').jcarousel({
 				wrap: 'circular'
 			});
-	
+			
+			$('#slider').nivoSlider();
+			
 			{% block doc_ready %}
 
 			{% endblock %}
@@ -177,6 +183,21 @@
 	<center style="color: gray;">Please note this web site is still construction, but you can feel free to explore.</center>
 		{% block main_content %}
 		<div id="main_content">			
+			<div id="slider-wrapper">        
+			    <div id="slider" class="nivoSlider">				
+				<img src="{{ MEDIA_URL }}images/toystory.jpg" alt="" />
+				<a href="http://dev7studios.com"><img src="{{ MEDIA_URL }}images/up.jpg" alt="" title="This is an example of a caption" /></a>
+				<img src="{{ MEDIA_URL }}images/walle.jpg" alt="" />
+				<img src="{{ MEDIA_URL }}images/nemo.jpg" alt="" title="#htmlcaption" />
+			    </div>
+			    <div id="htmlcaption" class="nivo-html-caption">
+				<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+			    </div>        
+			</div>
+			<p>
+				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively.
+				This site is still under construction. But you can feel free to browse.
+			</p><br/><br/>			
 			<ul id="mycarousel" class="jcarousel-skin-tango">
 				<li><a href="{% url index %}portfolio/#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
 				<li><a href="{% url index %}portfolio/#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
@@ -187,10 +208,6 @@
 				<li><a href="{% url index %}portfolio/#PostgreSQL"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
 				<li><a href="{% url index %}portfolio/#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
 			</ul>        
-			<p>
-				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively.
-				This site is still under construction. But you can feel free to browse.
-			</p>
 		</div>
 		{% endblock %}
     </div>
