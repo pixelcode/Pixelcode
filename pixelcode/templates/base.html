@@ -114,13 +114,21 @@
 		a, img { border: 0; outline: none; }
 		a:hover { text-decoration: underline; }
 		body { float: left; width: 100%; background-attachment: fixed; background-image: url({{ MEDIA_URL }}images/pixellogo-big.png); background-position: center 65px; background-repeat: no-repeat; margin: 0; font-family: 'Metrophobic', Helvetica Neue; font-size: 15px; }
-		#content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 1060px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
+		.content { width: 100%; margin: 0 auto; float: left; }
+		#top_content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; background-repeat: no-repeat; }
+		#center_content { background-color: rgba(255, 192, 203, 0.3); }
+		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left;  }
+		
+		#header { padding: 25px 0 0 0; margin: 0 auto; width: 1060px;}	
+		#menu_container { margin: 0 auto; width: 1060px; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 44px; width: 100%; text-align: center; }
+		#main_content { color: black; margin: 0 auto; width: 1060px; text-align: left; padding-top: 25px; line-height: 21px; }
+		#footer-container { width: 1060px; margin: 0 auto; padding-top: 50px; }
+		
 		li { list-style-image: url({{ MEDIA_URL }}images/list.png); }
 		li span { color: white; }
 		.selected, .tweeted_on, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
 		
-		#header { padding: 25px 0 0 0; }
-		#menu_container { margin: 25px 0 10px 0; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
+			
 		#menu { margin: 0 auto; width: 650px; height: 54px; }
 		
 		#menu li { margin: 0 auto; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
@@ -130,11 +138,9 @@
 		h1{ font-size: 14px;}
 		#menu li a { font-size: 14px; color: #939393; }
 		#menu li#selected a, #menu li a:hover { color: white; }
+						
+				
 		
-		#main_content { text-align: left; padding-top: 25px; float: left; line-height: 21px; margin: 0 0 50px 50px; width: 1060px;}
-		
-		#footer { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4); min-height: 400px; text-align: left; width: 100%; margin: 0 auto; float: left; }
-		#footer-container { width: 1060px; margin: 0 auto; padding-top: 50px; }
 		#footer-container, #footer-container a { color: #999999; }
 		#footer1, #footer2, #footer3 { float: left; width: 27%; min-height: 300px; padding: 0 3%; }
 		#footer1, #footer2 { border-right: 2px solid #000; }
@@ -171,7 +177,7 @@
 	</script>	
 </head>
 <body>
-    <div id="content">
+    <div class="content" id="top_content">
         <div id="header">
             <a href="{% url index %}"><img src="{{ MEDIA_URL }}images/logo.png" /></a>
             <img src="{{ MEDIA_URL }}images/tagline.png" />
@@ -183,38 +189,39 @@
 				{% endfor %}
             </ul>
         </div>
-	<center style="color: gray;">Please note this web site is still construction, but you can feel free to explore.</center>
-		{% block main_content %}
-		<div id="main_content">			
-			<div id="slider-wrapper">        
-			    <div id="slider" class="nivoSlider">				
-				<img src="{{ MEDIA_URL }}images/toystory.jpg" alt="" />
-				<a href="http://dev7studios.com"><img src="{{ MEDIA_URL }}images/up.jpg" alt="" title="This is an example of a caption" /></a>
-				<img src="{{ MEDIA_URL }}images/walle.jpg" alt="" />
-				<img src="{{ MEDIA_URL }}images/nemo.jpg" alt="" title="#htmlcaption" />
-			    </div>
-			    <div id="htmlcaption" class="nivo-html-caption">
-				<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
-			    </div>        
-			</div>
-			<p>
-				<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively.
-				This site is still under construction. But you can feel free to browse.
-			</p><br/><br/>			
-			<ul id="mycarousel" class="jcarousel-skin-tango">
-				<li><a href="{% url index %}portfolio/#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
-				<li><a href="{% url index %}portfolio/#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
-				<li><a href="{% url index %}portfolio/#Java"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
-				<li><a href="{% url index %}portfolio/#MySQL"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
-				<li><a href="{% url index %}portfolio/#CouchDB"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
-				<li><a href="{% url index %}portfolio/#CodeIgniter"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="CodeIgniter" /></a></li>
-				<li><a href="{% url index %}portfolio/#PostgreSQL"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
-				<li><a href="{% url index %}portfolio/#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
-			</ul>        
-		</div>
-		{% endblock %}
     </div>
-    <div id="footer">
+    <div class="content" id="center_content">
+	{% block main_content %}
+	<div id="main_content">			
+		<div id="slider-wrapper">        
+		    <div id="slider" class="nivoSlider">				
+			<img src="{{ MEDIA_URL }}images/toystory.jpg" alt="" />
+			<a href="http://dev7studios.com"><img src="{{ MEDIA_URL }}images/up.jpg" alt="" title="This is an example of a caption" /></a>
+			<img src="{{ MEDIA_URL }}images/walle.jpg" alt="" />
+			<img src="{{ MEDIA_URL }}images/nemo.jpg" alt="" title="#htmlcaption" />
+		    </div>
+		    <div id="htmlcaption" class="nivo-html-caption">
+			<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+		    </div>        
+		</div>
+		<p>
+			<b>Wherever there are awesome pixels waiting to meet efficient code, we jump right in.</b> In the past we have worked with other web development companies that needed assistance with new or ongoing projects. Our team of skilled developers have experience in a wide variety of web frameworks and technologies. We version control, document and format our code so other teams can collaborate on projects with us effectively.
+			This site is still under construction. But you can feel free to browse.
+		</p><br/><br/>			
+		<ul id="mycarousel" class="jcarousel-skin-tango">
+			<li><a href="{% url index %}portfolio/#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
+			<li><a href="{% url index %}portfolio/#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
+			<li><a href="{% url index %}portfolio/#Java"><img src="{{ MEDIA_URL }}images/portfolio/java.png" alt="Java" /></a></li>
+			<li><a href="{% url index %}portfolio/#MySQL"><img src="{{ MEDIA_URL }}images/portfolio/mysql.png" alt="MySQL" /></a></li>
+			<li><a href="{% url index %}portfolio/#CouchDB"><img src="{{ MEDIA_URL }}images/portfolio/couchdb.png" alt="CouchDB" /></a></li>
+			<li><a href="{% url index %}portfolio/#CodeIgniter"><img src="{{ MEDIA_URL }}images/portfolio/ci.png" alt="CodeIgniter" /></a></li>
+			<li><a href="{% url index %}portfolio/#PostgreSQL"><img src="{{ MEDIA_URL }}images/portfolio/postgre.png" alt="PostgreSQL" /></a></li>
+			<li><a href="{% url index %}portfolio/#MongoDB"><img src="{{ MEDIA_URL }}images/portfolio/mongodb.png" alt="MongoDB" /></a></li>
+		</ul>        
+	</div>
+	{% endblock %}
+    </div>
+    <div id="footer" class="content">
 		<div id="footer-container">
 			<div id="footer1">
 				<ul id="footer-menu">
