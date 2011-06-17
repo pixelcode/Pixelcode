@@ -104,23 +104,23 @@
 		a { text-decoration: none; color: #ff9900; }
 		a, img { border: 0; outline: none; }
 		a:hover { text-decoration: underline; }
-        body { background-attachment: fixed; background-image: url({{ MEDIA_URL }}images/pixellogo-big.png); background-position: center 100px; background-repeat: no-repeat; margin: 0; font-family: 'Metrophobic', Helvetica Neue; font-size: 15px; }
-        #content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 1060px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
+		body { float: left; width: 100%; background-attachment: fixed; background-image: url({{ MEDIA_URL }}images/pixellogo-big.png); background-position: center 100px; background-repeat: no-repeat; margin: 0; font-family: 'Metrophobic', Helvetica Neue; font-size: 15px; }
+		#content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; width: 1060px; margin: 0 auto; min-height: 900px; background-repeat: no-repeat; }
 		li { list-style-image: url({{ MEDIA_URL }}images/list.png); }
 		li span { color: white; }
-        .selected, .tweeted_on, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
+		.selected, .tweeted_on, #footer-menu li a#selected, #footer-menu li a:hover { color: #ff9900; }
 		
-        #header { padding: 25px 0 0 0; }
-        #menu_container { margin: 25px 0 10px 0; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
-        #menu { margin: 0 auto; width: 650px; height: 54px; }
+		#header { padding: 25px 0 0 0; }
+		#menu_container { margin: 25px 0 10px 0; background-image: url('{{ MEDIA_URL }}images/menu_bg.png'); background-repeat: repeat-x; display: block; float: left; height: 54px; width: 100%; text-align: center; }
+		#menu { margin: 0 auto; width: 650px; height: 54px; }
 		
 		#menu li { margin: 0 auto; float: left; padding: 10px 20px 23px 20px; margin-right: 20px; height: 21px;}
-        #menu li:first-child { list-style: none; }
+		#menu li:first-child { list-style: none; }
 		#h1 { margin-top: 20px; }
 		h1, #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-weight: normal; }
 		h1{ font-size: 14px;}
 		#menu li a { font-size: 14px; }
-        #menu li#selected, #menu li:hover { background-image: url({{ MEDIA_URL }}images/menu-selected.png); background-position: bottom center; background-repeat: no-repeat; }
+		#menu li#selected, #menu li:hover { background-image: url({{ MEDIA_URL }}images/menu-selected.png); background-position: bottom center; background-repeat: no-repeat; }
 		
 		#main_content { text-align: left; padding-top: 25px; float: left; line-height: 21px; margin: 0 0 50px 50px; width: 1060px;}
 		
@@ -227,4 +227,6 @@
 				{% endfor %}				
 			</div>
 		</div>
-    </div
+    </div>
+</body>
+</html>
