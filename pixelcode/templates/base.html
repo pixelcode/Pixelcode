@@ -27,6 +27,7 @@
 	
 	{% block extra_head %}{% endblock %}
 	<script type="text/javascript">
+  
 		jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
 		  if (this.is(":hidden")) {
 			return this.slideDown(speed, easing).fadeTo(speed, 1, easing, callback);
