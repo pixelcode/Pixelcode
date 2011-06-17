@@ -109,14 +109,14 @@
 	<style>
 		html { background-image: url({{ MEDIA_URL }}images/bg-chalkboard-home.jpg); color: white; text-align: center;
 			background-repeat: no-repeat; background-color: #191919;
-			background-position: top center; }
+			background-position: top center;}
 		a { text-decoration: none; color: #ff9900; }
 		a, img { border: 0; outline: none; }
 		a:hover { text-decoration: underline; }
 		body { float: left; width: 100%; background-attachment: fixed; background-image: url({{ MEDIA_URL }}images/pixellogo-big.png); background-position: center top; background-repeat: no-repeat; margin: 0; font-family: 'Metrophobic', Helvetica Neue; font-size: 15px; }
 		.content { width: 100%; margin: 0 auto; float: left; }
 		#top_content { background-image: url('{{ MEDIA_URL }}images/highlight.png'); background-position: center top; background-repeat: no-repeat; }
-		#center_content { color: black; background-image: url({{ MEDIA_URL }}images/download.jpeg); background-repeat: repeat; }
+		#center_content { color: black; background-image: url({{ MEDIA_URL }}images/download.jpeg); }
 		#footer { background-image: url({{ MEDIA_URL }}images/bg-chalkboard-home.jpg); background-position: center top; min-height: 400px; text-align: left;  }
 		
 		#header { padding: 25px 0 0 0; margin: 0 auto; width: 1060px;}	
@@ -147,6 +147,7 @@
 		#footer2, #footer3 { border-left: 1px solid #323232; }
 		#footer-menu, #footer-menu li { list-style-image: none !important; list-style: none !important; padding-left: 0 !important; }
 		#footer-menu li a { text-decoration: none; display: block; height: 25px; width: 100%; background: transparent url({{ MEDIA_URL }}images/bottom-nav-bg.png) repeat-x bottom; margin-bottom: 10px; }
+		.twitter_stat { text-wrap: break-word; overflow: hidden; }
 		.twitter_stat a { text-decoration: none; color: white !important;}
 		.twitter_stat a:hover { text-decoration: underline; }
 		#footer-nav-last { background: none !important; }
@@ -233,7 +234,8 @@
 				</ul>			
 			</div>
 			<div id="footer2">
-				<img class="icon" src="{{ MEDIA_URL }}images/contact-us-icon.png" /><h1>Contact Us</h1>				
+				<img class="icon" src="{{ MEDIA_URL }}images/contact-us-icon.png" /><h1>Contact Us</h1>
+				<div class="clear"></div>
 				<form id="contact-us-form" action="." method="post">
 					{% csrf_token %}
 					<input class="name" type="text" name="name" value="Name" />
@@ -245,6 +247,7 @@
 			</div>
 			<div id="footer3">
 				<img class="icon" src="{{ MEDIA_URL }}images/twitter-icon.png" /><h1>Twitter Feed</h1>
+				<div class="clear"></div>
 				{% for t in tweets %}
 					{% if forloop.counter == 1 or forloop.counter == 2 or forloop.counter == 3 %}
 						<div class="twitter_stat"><p>{{ t.text|safe }}<br/><span class="tweeted_on">tweeted on {{ t.date|date:"M jS" }}</span></div>
