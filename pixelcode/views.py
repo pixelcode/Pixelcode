@@ -7,8 +7,8 @@ from django.utils import simplejson
 from forms import *
 
 def index(request):
-    context ={ 'nav' : Navigation.objects.get(slug='home') }
-    return render_to_response ('index.html', context, context_instance = RequestContext(request))
+    context = {'nav' : Navigation.objects.get(slug='home')}
+    return render_to_response('index.html', context, context_instance = RequestContext(request))
 
 def nav(request, nav):
     template = nav+'.html'    
