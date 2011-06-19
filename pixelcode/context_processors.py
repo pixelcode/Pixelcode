@@ -20,10 +20,10 @@ def parse_tweet(tweet):
     
 def latest_tweet( request ):
     tweets = cache.get('tweets')
-    #if not tweets:
-    #    tweets = twitter.Api().GetUserTimeline( settings.TWITTER_USER )[0:8]
-    #    for t in tweets:
-    #        t.text = parse_tweet(t.text)
-    #        t.date = datetime.strptime( t.created_at, "%a %b %d %H:%M:%S +0000 %Y" )
-    #    cache.set('tweets', tweets, settings.TWITTER_TIMEOUT )
+    if not tweets:
+        tweets = twitter.Api().GetUserTimeline( settings.TWITTER_USER )[0:8]
+        for t in tweets:
+            t.text = parse_tweet(t.text)
+            t.date = datetime.strptime( t.created_at, "%a %b %d %H:%M:%S +0000 %Y" )
+        cache.set('tweets', tweets, settings.TWITTER_TIMEOUT )
     return { "tweets": tweets }
