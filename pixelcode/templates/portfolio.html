@@ -2,7 +2,7 @@
 
 {% block extra_style %}
 <style>
-    #main_content { float: left; width: 100%; }
+    #main_content { width: 950px; }
     #clients { vertical-align: middle; }
     #clients img { padding: 5px; border: 1px solid #434343; margin-right: 15px; }
     #clients img:hover { border: 1px solid #ff9902; }
@@ -49,8 +49,6 @@
 
 {% block main_content %}
 <div id="main_content">
-    <h1>Our Work</h1>
-
 			<ul id="mycarousel" class="jcarousel-skin-tango">
 				<li><a href="#PHP"><img src="{{ MEDIA_URL }}images/portfolio/php.png" alt="PHP" /></a></li>
 				<li><a href="#Python"><img src="{{ MEDIA_URL }}images/portfolio/python.png" alt="Python" /></a></li>
@@ -125,3 +123,5 @@
     </table>-->
 </div>
 {% endblock %}
+
+{% block carousel_content %}{% endblock %}

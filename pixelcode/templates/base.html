@@ -138,9 +138,10 @@
 		#menu li:first-child { list-style: none; }
 		#h1 { margin-top: 20px; }
 		h1, #menu li a { font-family: 'Metrophobic', serif; color: white; text-decoration: none; text-transform: uppercase; font-weight: normal; }
-		h1{ font-size: 14px; color: black; }
+		h1{ font-size: 14px; color: white; }
 		#menu li a { font-size: 14px; color: #939393; }
-		#menu li#selected a, #menu li a:hover { color: white; }
+		#menu li a:hover { color: white !important; }
+		#menu li#selected a { color: white !important; }
 						
 				
 		
@@ -216,6 +217,7 @@
 	</div>
 	{% endblock %}
     </div>
+    {% block carousel_content %}
 	<div id="carousel" class="content">
 		<div id="carousel_container">	
 		<ul id="mycarousel" class="jcarousel-skin-tango">
@@ -230,6 +232,7 @@
 		</ul>
 		</div>
 	</div>
+	{% endblock %}
     <div id="footer" class="content">
 		<div id="footer-container">
 			<div id="footer1">
